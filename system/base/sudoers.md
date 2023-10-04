@@ -5,5 +5,5 @@ id <linops>
 ```
 Чтобы добавить в группу `sudo`
 ```
-usermod -aG sudo <linops>
+sudo usermod -aG sudo <linops>
 ```
