@@ -1,0 +1,5 @@
+## Изменить название хоста
+
+```
+hostnamectl set-hostname <name>
+```
