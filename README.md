@@ -1,1 +1,1 @@
-# mgmt
+# Notes abot Debian
