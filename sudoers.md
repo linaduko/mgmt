@@ -1,9 +1,9 @@
 ## Добавить существующего пользователя в группу `sudo`
 Чтобы проверить группы пользователя:
 ```
-id linops
+id <linops>
 ```
 Чтобы добавить в группу `sudo`
 ```
-usermod -aG sudo linops
+usermod -aG sudo <linops>
 ```
