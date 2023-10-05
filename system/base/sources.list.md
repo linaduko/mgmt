@@ -23,7 +23,7 @@ deb-src http://deb.debian.org/debian bookworm-updates main non-free-firmware
 ```
 
 
-Ошибка 1:
+`Ошибка 1:`
 
 N: Repository 'Debian bookworm' changed its 'firmware component' value from 'non-free' to 'non-free-firmware'      
 N: More information about this can be found online in the Release notes at:    
