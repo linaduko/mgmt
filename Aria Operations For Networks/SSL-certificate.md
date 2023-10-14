@@ -1,6 +1,6 @@
 ## Замена сертификата Aria Operations for Networks
 
-1. Необходимо подключиться c помощью SSH к aon.example.com под пользователем `support`.
+1. Необходимо подключиться c помощью SSH к `aon.example.com` под пользователем `support`.
 2. Далее создать конфигурационный файл `vrni.cfg` со следующим содержанием:
 ```
 [ req ]
@@ -33,15 +33,22 @@ commonName = ~current dns-name~
 openssl genrsa -out vrni.key 2048
 openssl req -new -key vrni.key -out vrni.csr -config vrni.cfg
 ```
-4. На dc.example.com/certsrv проводим следующие манипуляции (забираем сертификаты в формате **Base64**):
+4. На `dc.example.com/certsrv` проводим следующие манипуляции (забираем сертификаты в формате **Base64**):
+
+![изображение](https://github.com/linaduko/mgmt/assets/101510056/596571da-808f-4229-a867-3a3becdba00b)
+
+![изображение](https://github.com/linaduko/mgmt/assets/101510056/3471a6bb-e92e-479e-a126-c7a4d91ce33a)
 
 ![изображение](https://github.com/linaduko/mgmt/assets/101510056/d0ad1aaf-d8e4-47b0-9084-8f2601c3a834)
 
 ![изображение](https://github.com/linaduko/mgmt/assets/101510056/68f0994d-1322-48ba-895b-5bf2ecc6667c)
 
-![изображение](https://github.com/linaduko/mgmt/assets/101510056/c3051701-3653-4634-8a6d-9490ff846e82)
+Вернемся на `dc.example.com/certsrv`
 
-![изображение](https://github.com/linaduko/mgmt/assets/101510056/7179b057-4eaa-44b4-8343-23d7a63211c1)
+![изображение](https://github.com/linaduko/mgmt/assets/101510056/9920a8f8-8630-44eb-a802-ebfacb44cfce)
+
+![изображение](https://github.com/linaduko/mgmt/assets/101510056/4e68db87-1045-4472-aa64-84f1a2e0d422)
+
 
 4. Возвращаемся к подключению к aon.example.com под пользователем `support`, куда мы сперва загружаем файлы сертификатов.
 Файлы которые у нас в папке:
@@ -57,7 +64,7 @@ cat vrni.cer root.cer > finish.cer
 sed -i 's/-----BEGIN PRIVATE KEY-----/-----BEGIN RSA PRIVATE KEY-----/g' vrni.key
 sed -i 's/-----END PRIVATE KEY-----/-----END RSA PRIVATE KEY-----/g' vrni.key
 ```
-6. Далее необходимо подключиться c помощью SSH к aon.example.com под пользователем `consoleuser`.
+6. Далее необходимо подключиться c помощью SSH к `aon.example.com` под пользователем `consoleuser`.
 ```
 custom-cert remove
 custom-cert copy --host aon.example.com --user support --port 22 --path /home/support/finish.cer
@@ -78,5 +85,5 @@ openssl rsa -noout -modulus -in vrni.key | openssl sha256
 ```
 openssl req -noout -modulus -in vrni.csr | openssl sha256
 ```
-Вывод каждой команды должен быть одинаков и представлять собой строку аналогичную следующей:
+Вывод каждой команды должен быть одинаков и представлять собой строку аналогичную следующей:           
 (stdin)= 342bd7490c3b79c83afbb90b3e78dd67
