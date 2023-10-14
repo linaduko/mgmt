@@ -43,6 +43,11 @@ openssl req -new -key vrni.key -out vrni.csr -config vrni.cfg
 
 ![изображение](https://github.com/linaduko/mgmt/assets/101510056/d0ad1aaf-d8e4-47b0-9084-8f2601c3a834)
 
+Если у вас нет шаблона VMware SSL:
+- [Официальный источник](https://kb.vmware.com/s/article/2112009)
+- [Наглядный источник 1](https://www.vexpert.cloud/creating-certificate-template-for-vsphere-vcenter-server/)
+- [Наглядный источник 2](https://www.derekseaman.com/2012/09/create-vmware-windows-ca-certificate.html)
+- 
 ![изображение](https://github.com/linaduko/mgmt/assets/101510056/68f0994d-1322-48ba-895b-5bf2ecc6667c)
 
 Вернемся на `dc.example.com/certsrv`
