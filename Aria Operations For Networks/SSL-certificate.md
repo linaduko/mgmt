@@ -2,6 +2,9 @@
 
 1. Необходимо подключиться c помощью SSH к `aon.example.com` под пользователем `support`.
 2. Далее создать конфигурационный файл `vrni.cfg` со следующим содержанием:
+
+! `aon.example.com` в ~subjectAltName и ~commonName меняем на fqdn вашего сервера Aria Operations for Networks.     
+! Заменяем все значения в [ req_distinguished_name ] на необходимые вам.
 ```
 [ req ]
 default_md = sha512
@@ -17,16 +20,15 @@ req_extensions = v3_req
 basicConstraints = CA:FALSE
 keyUsage = digitalSignature, keyEncipherment, dataEncipherment
 extendedKeyUsage = serverAuth, clientAuth
-subjectAltName = DNS: ~current dns-name~
+subjectAltName = DNS: aon.example.com
 
 [ req_distinguished_name ]
-countryName = CountryName
-stateOrProvinceName = StateOrProvinceName
-localityName = LocalityName
-0.organizationName = OrganizationName
-organizationalUnitName = OrganizationUnitName
-commonName = ~current dns-name~
-
+countryName = BY
+stateOrProvinceName = Minsk
+localityName = Minsk
+0.organizationName = LinOps
+organizationalUnitName = Individual
+commonName = aon.example.com
 ```
 3. Генерируем ключ и соответствующий запрос сертификата.
 ```
