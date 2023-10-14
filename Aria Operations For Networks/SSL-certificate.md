@@ -65,8 +65,6 @@ custom-cert copy --host aon.example.com --user suopport --port 22 --path /home/s
 custom-cert apply
 ```
 ---
-Дополнительно:
-
 ## Проверка соответствия ключа и сертификата:
 
 1.Вычисление хэша модуля SSL-сертификата: 
